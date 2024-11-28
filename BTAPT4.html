@@ -1,0 +1,82 @@
+<!DOCTYPE html>
+<html lang="vi">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Biểu mẫu thông tin</title>
+    <style>
+        h1 {
+            font-size: 24px;
+            text-align: center;
+        }
+        label {
+            display: block;
+            font-weight: bold;
+        }
+        input[type="text"], input[type="email"], input[type="password"], input[type="date"], input[type="file"], button {
+            border: 1px solid #ccc;
+        }
+        button {
+            background-color: #3f28a7;
+            color: white;
+        }
+        button:hover {
+            background-color: #88212d;
+        }
+    </style>
+</head>
+<body>
+    <div class="form-container">
+        <h1>Biểu mẫu thông tin</h1>
+        <form action="submit_form.html" method="GET" target="_blank">
+            <div class="form-group">
+                <label for="name">Họ và tên</label>
+                <input type="text" id="name" name="name" placeholder="Nhập họ và tên của bạn">
+            </div>
+            <div class="form-group">
+                <label for="email">Email</label>
+                <input type="email" id="email" name="email" placeholder="Nhập email">
+            </div>
+            <div class="form-group">
+                <label for="password">Mật khẩu</label>
+                <input type="password" id="password" name="password" placeholder="Nhập mật khẩu">
+            </div>
+            <div class="form-group">
+                <label for="dob">Ngày sinh</label>
+                <input type="date" id="dob" name="dob">
+            </div>
+            <div class="form-group gender">
+                <label>Giới tính:</label>
+                <div>
+                    <input type="radio" id="male" name="gender" value="Nam">
+                    <label for="male">Nam</label>
+                </div>
+                <div>
+                    <input type="radio" id="female" name="gender" value="Nữ">
+                    <label for="female">Nữ</label>
+                </div>
+            </div>
+            <div class="form-group hobbies">
+                <label>Sở thích:</label>
+                <div>
+                    <input type="checkbox" id="xem phim" name="hobby" value="Xem phim">
+                    <label for="xem phim">xem phim </label>
+                </div>
+                <div>
+                    <input type="checkbox" id="chơi game" name="hobby" value="chơi game">
+                    <label for="chơi game">Chơi game</label>
+                </div>
+                <div>
+                    <input type="checkbox" id="Nghe nhạc" name="hobby" value="Nghe nhạc">
+                    <label for="nghe nhạc">Nghe nhạc</label>
+                </div>
+            </div>
+            <div class="form-group">
+                <label for="avatar">Tải lên ảnh đại diện</label>
+                <input type="file" id="avatar" name="avatar">
+            </div>
+            <button type="submit">Gửi</button>
+        </form>
+    </div>
+</body>
+</html>
