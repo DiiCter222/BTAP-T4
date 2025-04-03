@@ -1,0 +1,53 @@
+<!DOCTYPE html>
+<html lang="vi">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Quản lý công việc</title>
+    <style>
+        body { font-family: Arial, sans-serif; text-align: center; }
+        .container { width: 300px; margin: auto; }
+        ul { list-style: none; padding: 0; }
+        li { padding: 10px; margin: 5px 0; background: #f4f4f4; cursor: pointer; display: flex; justify-content: space-between; align-items: center; }
+        li:hover { background: #ddd; }
+        .completed { text-decoration: line-through; }
+        button { margin-left: 10px; }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <h1>Quản lý công việc</h1>
+        <input type="text" id="taskInput" placeholder="Nhập công việc..."><button onclick="addTask()">Thêm Công Việc</button>
+        <ul id="taskList"></ul>
+    </div>
+
+    <script>
+        function addTask() {
+            let input = document.getElementById("taskInput");
+            let taskText = input.value.trim();
+            if (taskText === "") return;
+            
+            let li = document.createElement("li");
+            li.textContent = taskText;
+            
+            let deleteBtn = document.createElement("button");
+            deleteBtn.textContent = "Xóa";
+            deleteBtn.onclick = function() { li.remove(); };
+            
+            li.appendChild(deleteBtn);
+            li.onclick = function() { li.classList.toggle("completed"); };
+            li.ondblclick = function() {
+                let newText = prompt("Sửa công việc:", taskText);
+                if (newText !== null) li.firstChild.textContent = newText;
+            };
+            
+            document.getElementById("taskList").appendChild(li);
+            input.value = "";
+        }
+
+        document.getElementById("taskInput").addEventListener("keypress", function(event) {
+            if (event.key === "Enter") addTask();
+        });
+    </script>
+</body>
+</html>
